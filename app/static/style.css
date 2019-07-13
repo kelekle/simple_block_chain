@@ -1,0 +1,152 @@
+nav {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto !important;
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+.page-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.comments {
+    margin: 20px 0;
+}
+
+.reply-body {
+    margin-top: 10px;
+}
+
+.sidebar {
+    padding-left: 30px;
+}
+
+.page-footer {
+    padding-top: 40px;
+}
+
+.tip { /* from github.com */
+    color: black !important;
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    background-color: #fafbfc;
+    border: 1px solid #e1e4e8;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05);
+}
+
+body {
+    margin: auto;
+    width: 750px;
+    background: url("images/login_theme/login_bg.png");
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+main {
+    padding: 10px 20px;
+}
+
+footer {
+    font-size: 13px;
+    color: #888;
+    border-top: 1px solid #eee;
+    margin-top: 25px;
+    text-align: center;
+    padding: 10px;
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #b8daff;
+  border-radius: 0.25rem;
+  color: #004085;
+  background-color: #cce5ff;
+}
+
+.error {
+    color: red;
+}
+
+.cardBox {
+                width: 250px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                text-align: center;
+                float: left;
+                margin-right: 10px;
+                margin-top: 80px;
+                padding: 5px;
+                padding-top: 15px;
+                border-radius:6px;
+                font-family: "宋体";
+                font-color: #656765;
+}
+
+.headerBox {
+                color: #fff;
+                padding: 10px;
+                font-size: 15px;
+                height: 80px;
+}
+
+.bodyBox {
+                padding: 10px;
+}
+
+.bodyBox p {
+                margin-left: 5px;
+}
+
+.card{
+    width: 270px;
+    margin-top: 10px;
+    padding: 5px;
+    padding-top: 15px;
+    border-radius:6px;
+    radius:6px;
+    font-color: #656765;
+}
+
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

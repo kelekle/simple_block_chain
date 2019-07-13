@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="page-header">我的商品</h2>
+    <div class="row">
+    {% for item in items %}
+     <div class="col-sm-6 col-md-4" onclick="window.location.href('url_for{{'block_cards', item.pid}}')">
+            <div class="thumbnail">
+            <img src="static/images/default_card_bg.jpg" alt="default icon">
+            <div class="caption">
+              <h3>{{item.name}}</h3>
+              <p>信息: {{item.info}}</p>
+                <div class="mt-4 text-center">
+                    <a href="{{url_for('block_cards', id=item.pid)}}">  二维码信息 </a>
+                </div>
+              <!--<p>地址: {{item.address}}</p>-->
+              <!--<p>阶段: {{item.step}}</p>-->
+              <!--<p>状态: {{item.status}}</p>-->
+            </div>
+            </div>
+            </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

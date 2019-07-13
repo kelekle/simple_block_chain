@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Find-Password Page</title>
+	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='my-login.css') }}">
+</head>
+<body class="my-login-page" src="static/images/login_theme/mylogin_bg.jpg">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center align-items-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img src="static/images/login_theme/logo.jpg" alt="bootstrap 4 login page">
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title">Forgot Password</h4>
+							<form method="POST" class="my-login-validation" novalidate="">
+								{{ form.csrf_token }}
+								<div class="form-group">
+									<label for="phone">Email</label>
+									<div class="form-inline">
+                					{% if form.email.errors %}
+                    					{{ form.email(id='phone', class='form-control') }}
+										{% for error in form.email.errors %}
+                        					<div class="invalid-feedback">
+                            					{{ error }}
+                        					</div>
+                    					{% endfor %}
+                					{% else %}
+                    					{{ form.email(class='form-control', placeholder="请输入邮箱", style="position:relative;width:100%") }}
+                					{% endif %}
+										{{ form.send_code(type="submit", class='btn btn-primary btn-block', style="height=80%") }}
+									</div>
+								</div>
+								<div class="form-group">
+                                    <label for="code">Validate-Code</label>
+                					{% if form.code.errors %}
+                    					{{ form.code(id='phone', class='form-control') }}
+										{% for error in form.code.errors %}
+                        					<div class="invalid-feedback">
+                            					{{ error }}
+                        					</div>
+                    					{% endfor %}
+                					{% else %}
+                    					{{ form.code(class='form-control', placeholder="请输入邮箱验证码", style="position:relative;") }}
+                					{% endif %}
+								</div>
+								<div class="form-group">
+									<label for="code">Password</label>
+               					 {% if form.password.errors %}
+                    				{{ form.password(class='form-control is-invalid') }}
+									{% for error in form.password.errors %}
+                        				<div class="invalid-feedback">
+                            				{{ error }}
+                        				</div>
+                    				{% endfor %}
+                				{% else %}
+                    				{{ form.password(class='form-control', placeholder="请输入密码") }}
+                				{% endif %}
+            					</div>
+								<main>
+    								{% for message in get_flashed_messages() %}
+        								<div class="alert">
+         								   {{ message }}
+        								</div>
+    								{% endfor %}
+    								{% block content %}{% endblock %}
+								</main>
+								<div class="form-group m-0">
+									{{ form.submit(type="submit", class='btn btn-primary btn-block') }}
+								</div>
+								<div class="mt-4 text-center">
+									Already have an account? <a href="{{url_for('login')}}"> Log in</a>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="footer">
+						Copyright &copy; 2017 &mdash; Your Company
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block metas %}
+    {{ super() }}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% endblock %}
+
+{% block title %}区块链管理系统-登录{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" media="all" type="text/css" href="{{ url_for('static', filename='style.css' ) }}">
+{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block content %}
+
+<div class="header">
+    <div class="headerIn">
+        <div class="logo">
+            <a href=""><img src="/static/images/login_theme/favicon.ico"></a>
+        </div>
+        <div class="link" style="float:right;margin-right:200px">
+            <a href="https://github.com">项目主页</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="modal-dialog" style="margin-top=10%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center" id="modalLabel">登录</h4>
+                </div>
+            <form method="post">
+            {{ form.csrf_token }}
+
+            <div class="form-group">
+                <span class="input-group input-group-md">
+                    <i class="glyphicon glyphicon-user"></i></span>
+                {% if form.username.errors %}
+                    {{ form.username(class='form-control is-invalid') }}
+                    {% for error in form.username.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {{ form.username(class='form-control', placeholder="请输入用户名或id", style="position:relative;margin-top:30px;margin-left:30px;width:300px") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <span class="input-group input-group-md">
+                    <i class="glyphicon glyphicon-lock"></i></span>
+                {% if form.password.errors %}
+                    {{ form.password(class='form-control is-invalid') }}
+                    {% for error in form.password.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {{ form.password(class='form-control', placeholder="请输入密码", style="position:relative;margin-left:30px;width:300px") }}
+                {% endif %}
+            </div>
+            <div class="form-check" style="float:left;">
+                {{ form.remember(class='form-check-input', style="position:relative;left:35px;display:inline") }}
+                {{ form.remember.label }}
+            </div>
+                <div class="modal-footer">
+                <div class="form-group">
+                    {{ form.submit(class='btn btn-primary', style="position:relative;left:10px;") }}
+                    <span><a href="{{url_for('find_password')}}">忘记密码？</a></span>
+                </div>
+                </div>
+            </form>
+            </div>
+        </div>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

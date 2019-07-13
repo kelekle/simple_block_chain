@@ -1,0 +1,147 @@
+{% extends 'home.html' %}
+
+{% block my_content %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="page-header">我要发布</h2>
+
+    <div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title">商品信息填写</h4>
+							<form method="POST" class="my-login-validation" novalidate="">
+								{{ form.csrf_token }}
+								<div class="form-group">
+									<label for="pid">商品id</label>
+                					{% if form.pid.errors %}
+                    					{{ form.pid(id='epid', class='form-control') }}
+										{% for error in form.pid.errors %}
+                        					<div class="invalid-feedback">
+                            					{{ error }}
+                        					</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.pid(class='form-control', readonly="readonly", value=info.pid, style="position:relative;width:100%") }}
+										{% else %}
+                    						{{ form.pid(class='form-control', placeholder="请输入商品id", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+								<div class="form-group">
+									<label for="pid">商品名称</label>
+                					{% if form.pid.errors %}
+                    					{{ form.pid(id='epid', class='form-control') }}
+										{% for error in form.pid.errors %}
+                        					<div class="invalid-feedback">
+                            					{{ error }}
+                        					</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.name(class='form-control', value=info.name, style="position:relative;width:100%") }}
+										{% else %}
+                    						{{ form.name(class='form-control', placeholder="请输入商品名称", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+								<div class="form-group">
+
+									<label for="password">商品信息</label>
+									{% if form.info.errors %}
+                    					{{ form.info(id='password',class='form-control is-invalid') }}
+                    					{% for error in form.info.errors %}
+										<div class="invalid-feedback">
+                            				{{ error }}
+                        				</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.info(class='form-control', value=info.info, style="position:relative;width:100%") }}
+										{% else %}
+                    						{{ form.info(class='form-control', placeholder="请输入商品信息", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+                                <div class="form-group">
+									<label for="address">商品产地</label>
+									{% if form.address.errors %}
+                    					{{ form.address(id='address',class='form-control is-invalid') }}
+                    					{% for error in form.address.errors %}
+										<div class="invalid-feedback">
+                            				{{ error }}
+                        				</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.address(class='form-control', value=info.address, style="position:relative;width:100%") }}
+										{% else %}
+                    						{{ form.address(class='form-control', placeholder="请输入商品生产地址", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+                                <div class="form-group">
+									<label for="performer">执行人</label>
+									{% if form.performer.errors %}
+                    					{{ form.performer(id='performer',class='form-control is-invalid') }}
+                    					{% for error in form.performer.errors %}
+										<div class="invalid-feedback">
+                            				{{ error }}
+                        				</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.performer(class='form-control', value=info.performer, style="position:relative;width:100%") }}
+										{% else %}
+											{{ form.performer(class='form-control', placeholder="请输入执行人", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+                                <div class="form-group">
+									<label for="contact">联系方式</label>
+									{% if form.contact.errors %}
+                    					{{ form.contact(id='contact',class='form-control is-invalid') }}
+                    					{% for error in form.contact.errors %}
+										<div class="invalid-feedback">
+                            				{{ error }}
+                        				</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.contact(class='form-control', value=info.contact, style="position:relative;width:100%") }}
+										{% else %}
+											{{ form.contact(class='form-control', placeholder="请输入联系方式", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+                                <div class="form-group">
+									<label for="op_description">操作描述</label>
+									{% if form.op_description.errors %}
+                    					{{ form.password(id='op_description',class='form-control is-invalid') }}
+                    					{% for error in form.op_description.errors %}
+										<div class="invalid-feedback">
+                            				{{ error }}
+                        				</div>
+                    					{% endfor %}
+                					{% else %}
+										{% if inserted %}
+											{{ form.op_description(class='form-control', value=info.discribe, style="position:relative;width:100%") }}
+										{% else %}
+											{{ form.op_description(class='form-control', placeholder="请输入操作描述", style="position:relative;width:100%") }}
+										{% endif %}
+                					{% endif %}
+								</div>
+                                <main>
+    								{% for message in get_flashed_messages() %}
+        								<div class="alert">
+         								   {{ message }}
+        								</div>
+    								{% endfor %}
+    								{% block content %}{% endblock %}
+								</main>
+								<div class="form-group m-0">
+									{{ form.submit(type="submit", class='btn btn-primary btn-block') }}
+								</div>
+							</form>
+						</div>
+					</div>
+</div>
+{% endblock %}

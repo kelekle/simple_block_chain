@@ -1,0 +1,61 @@
+{% extends 'home.html' %}
+
+{% block my_content %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="page-header">我要发布</h2>
+    <div class="row">
+        {% for item in items %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+            <img src="static/images/default_card_bg.jpg" alt="default icon">
+            <p class="caption">
+              <h3>{{item.name}}</h3>
+              <p>信息: {{item.info}}</p>
+              <p>地址: {{item.address}}</p>
+              <p>阶段: 原产地</p>
+              {% if item.status == 0 %}
+                <p>状态:&nbsp;&nbsp;新建 </p>
+                {% elif item.status == 1 %}
+                <p>状态:&nbsp; 处理中...</p>
+                {% elif item.status == 2 %}
+                <p>状态: &nbsp;&nbsp;完成 </p>
+                {% endif %}
+                {% if item.status == 0 %}
+                 <p>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-block" style="width=20%" onclick="window.location.href=('{{url_for('edit_info_sale', id=item.pid)}}')">编辑信息</button>
+                        </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary btn-block float-right" style="width=20%" onclick="window.location.href=('{{url_for('join_sale', id=item.pid)}}')">加入区块链</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-danger float-right" style="width=20%" onclick="window.location.href=('{{url_for('delete_sale', id=item.pid)}}')">删除</button>
+                    </div>
+                    </div>
+                </p>
+                {% else %}
+                <p>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-block" disabled="disabled" style="width=20%" onclick="window.location.href=('{{url_for('edit_info_sale', id=item.pid)}}')">编辑信息</button>
+                        </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary btn-block float-right" disabled="disabled" style="width=20%" onclick="window.location.href=('{{url_for('join_sale', id=item.pid)}}')">加入区块链</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-danger float-right" disabled="disabled" style="width=20%" onclick="window.location.href=('{{url_for('delete_sale', id=item.pid)}}')">删除</button>
+                    </div>
+                    </div>
+                </p>
+                {% endif %}
+            </div>
+            </div>
+          {% endfor %}
+            <div class="col-sm-6 col-md-4">
+                <div class="add" onclick="window.location.href=('{{url_for('edit_info_sale_fir')}}')">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
