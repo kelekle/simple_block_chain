@@ -52,6 +52,7 @@ class MessageThread(threading.Thread):
         client.connect(self.endpoint)
         client.setsockopt(zmq.SUBSCRIBE, b'')  # Terminate early
         while True:
+            print("5002 waiting...")
             rep = client.recv_json()
             reply = json.loads(rep)
             print("5002 received: ", reply)
@@ -162,7 +163,7 @@ class LoginThread(threading.Thread):
                 socket.send_json(json.dumps({'nothing': "true"}))
             rec = socket.recv_json()
             print("my received: ", rec)
-            time.sleep(300)
+            time.sleep(60)
 
     def run(self):  # 把要执行的代码写到run函数里面 线程在创建后会直接运行run函数
         context = zmq.Context()
