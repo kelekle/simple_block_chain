@@ -43,7 +43,7 @@ CREATE TABLE `buyed` (
 --
 
 INSERT INTO `buyed` (`pid`, `address`, `contact`, `performer`, `optime`, `discribe`, `status`) VALUES
-(123, '北京', '18811021669', '老杨', '2019-07-13 10:11:16', 'first', 2);
+(123, '北京', '12345678910', '老杨', '2019-07-13 10:11:16', 'first', 2);
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `process` (
 --
 
 INSERT INTO `process` (`pid`, `address`, `contact`, `discribe`, `performer`, `optime`, `status`) VALUES
-(123, '海淀', '18811021669', 'first', '老杨', '2019-07-13 01:52:39', 2);
+(123, '海淀', '12345678910', 'first', '老杨', '2019-07-13 01:52:39', 2);
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE `sale` (
 --
 
 INSERT INTO `sale` (`pid`, `name`, `birthday`, `address`, `performer`, `contact`, `info`, `discribe`, `status`) VALUES
-(123, '西红柿', '2019-07-13 01:23:57', '海淀', '老杨', '18811021669', '西红柿不好吃', 'first', 2);
+(123, '西红柿', '2019-07-13 01:23:57', '海淀', '老杨', '12345678910', '西红柿不好吃', 'first', 2);
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,7 @@ CREATE TABLE `transfer` (
 --
 
 INSERT INTO `transfer` (`pid`, `address`, `contact`, `performer`, `discribe`, `optime`, `status`) VALUES
-(123, '海淀', '18811021669', '老杨', 'first', '2019-07-13 09:29:30', 2);
+(123, '海淀', '12345678910', '老杨', 'first', '2019-07-13 09:29:30', 2);
 
 -- --------------------------------------------------------
 

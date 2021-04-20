@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 '''
-@author: yangpb
+@author: kle
 @license: (C) Copyright 2013-2017, Node Supply Chain Manager Corporation Limited.
 @contact: 1524183302@qq.com
 @file: utils.py
@@ -22,8 +22,8 @@ import datetime
 smtp_host = "smtp.sina.com"
 pop_host = "pop.sina.com"
 port = 25
-username = "ypb18811021669@sina.com"
-password = "yqy19991223"
+username = "ypb12345678910@sina.com"
+password = "******"
 
 
 class Utils(object):

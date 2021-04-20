@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 '''
-@author: yangpb
+@author: kle
 @license: (C) Copyright 2013-2017, Node Supply Chain Manager Corporation Limited.
 @contact: 1524183302@qq.com
 @file: publisher.py
